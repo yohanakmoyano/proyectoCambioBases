@@ -5,22 +5,42 @@
 
 //--------Métodos de conversión----------
 
+void ayuda(){
+     printf("-User commands \n");
+        printf("\n");
+        //Nombre
+        printf("NOMBRE\n");
+        printf("Convert aplicacion\n");
+        printf("\n");
+        //Synopsis revisar
+        printf("SYNOPSIS\n");
+        printf("Modo de empleo: convert -n<number> [-s <source_base>] [-d <dest_base>] [-v] [-h] \n");
+        printf("\n");
+        //Descripcion
+        printf("DESCRIPCION\n");
+        printf("-n  numero que desea convertir\n");
+        printf("-s  base origen que esta expresado el numero\n");
+        printf("-d  base destino que desea convertir\n");
+        printf("-h  muestra esta ayuda y sale del programa\n");
+        printf("-v  muestra los computos intermedios que se realizaron en el proceso de conversion\n");
+        printf("\n");
+}
 
 /*
     Retorna el resultado de la conversión utilizando el método de la división
     para la parte entera.
 */
 
-char * division_partEnt(char * cadenaEnt,int origen, int destino){
+char * division_partEnt(char * cadenaEnt,int origen, int destino, int pasos){
 
     char *cadena_retornar = malloc(sizeof(4));
     int retornar[4];
-
     int num=0;
     int cant=0;
     int entero=0;
     int r=0;
     int q=0;
+
 
     while(cadenaEnt[r]!='\0'){
         cant++;
@@ -37,11 +57,32 @@ char * division_partEnt(char * cadenaEnt,int origen, int destino){
     int resultado=1;
     int resto=0;
     int cantArreglo=0;
+
+    if(pasos==1){
+        printf("Dividimos el numero por la base destino tantas veces como sea posible, y me quedo con el resto");
+    }
+
     for(int z=0; z<5 && resultado!=0; z++){
+        if(pasos==1){
+            printf("Tomo el numero %i \n",num);
+            printf("Lo divido por la base destino %i \n",destino);
+        }
         resultado=num/destino;
+        if(pasos==1){
+            printf("El resultado de esa división es %i \n",resultado);
+        }
         resto=num%destino;
+        if(pasos==1){
+            printf("El resto de esa división es %i \n",resto);
+        }
         retornar[z]=resto;
+        if(pasos==1){
+            printf("El resto de esa división es %i \n",resto);
+        }
         num=resultado;
+        if(pasos==1){
+            printf("Ahora el numero a divir por la base destino es %i \n",resto);
+        }
         cantArreglo++;
     }
 
@@ -116,7 +157,7 @@ char * division_partEnt(char * cadenaEnt,int origen, int destino){
 
 //ParteEnteraAuxiliar
 
-char * division_partEntAuxiliar(int decimal,int destino){
+char * division_partEntAuxiliar(int decimal,int destino,int pasos){
 
     char *cadena_retornar = malloc(sizeof(4));
     int retornar[4];
@@ -211,7 +252,7 @@ char * division_partEntAuxiliar(int decimal,int destino){
     Retorna el resultado de la conversión utilizando el método de la multiplicación
     para la parte entera.
 */
-int multiplicacion_partEnt(char * cadenaEnt,int origen){
+int multiplicacion_partEnt(char * cadenaEnt,int origen, int pasos){
 
     int suma=0;
     int sumaParcial=0;
@@ -277,7 +318,7 @@ int multiplicacion_partEnt(char * cadenaEnt,int origen){
     Retorna el resultado de la conversión utilizando el método de la multiplicación
     para la parte fraccionaria.
 */
-char * multiplicacion_partFrac(char * cadenaFrac,int origen, int destino){
+char * multiplicacion_partFrac(char * cadenaFrac,int origen, int destino, int pasos){
 
     char *cadena_retornar = malloc(sizeof(4));
     int cant=0;
@@ -383,7 +424,7 @@ char * multiplicacion_partFrac(char * cadenaFrac,int origen, int destino){
 }
 
 //Metodo Auxiliar
-char * multiplicacion_partFracAuxiliar(double decimal,int destino){
+char * multiplicacion_partFracAuxiliar(double decimal,int destino, int pasos){
 
     char *cadena_retornar = malloc(sizeof(4));
     printf("el decimal ingresado es %f \n",decimal);
@@ -472,7 +513,7 @@ char * multiplicacion_partFracAuxiliar(double decimal,int destino){
     Retorna el resultado de la conversión utilizando el método de la división
     para la parte fraccionaria.
 */
-double division_partFrac(char * cadenaFrac, int origen, int destino){
+double division_partFrac(char * cadenaFrac, int origen, int destino, int pasos){
 
     double suma=0.0;
     double sumaParcial=0;

@@ -49,20 +49,18 @@ int main(int argc,char * argv[])
     char rpf[10];
     char *retornar_parteFraccionaria=rpf;
     int z=0;
-
     int longitud = 0;
     int x=0;
+    int mostrarPasos=0;
 
     while(argv[x]!=NULL){
        longitud++;
        x++;
     }
 
-    printf("la longitud del arreglo es: %i \n",longitud);
-
     while(argv[z]!=NULL){
 
-        if(strcmp(argv[z], "-n")==0){ //Si encuentro -n
+        if(strcmp(argv[z], "-n")==0){
             if(z==longitud-1){
                 cad=NULL;
             }
@@ -75,7 +73,6 @@ int main(int argc,char * argv[])
                 }
             }
 
-            printf("Lo que hay en cad es: %s \n",cad);
         }
 
         if(strcmp(argv[z], "-s")==0){
@@ -90,7 +87,6 @@ int main(int argc,char * argv[])
                 }
             }
 
-            printf("Lo que hay en cadena_baseOrigen es: %s \n",cadena_baseOrigen);
         }
 
         if(strcmp(argv[z], "-d")==0){
@@ -104,20 +100,18 @@ int main(int argc,char * argv[])
                     }
             }
 
-
-            printf("Lo que hay en cadena_BaseDestino es: %s \n",cadena_baseDestino);
         }
 
-        //el if para el -v
+        if(strcmp(argv[z], "-h")==0){
+            ayuda();
+        }
 
-        //el if para el -h
-       //longitud++;
+        if(strcmp(argv[z], "-v")==0){
+            mostrarPasos=1;
+        }
+
        z++;
     }
-
-    printf("Holi \n");
-
-
 
     //Verifico si hay cadena para el parámetro -n
 
@@ -125,7 +119,6 @@ int main(int argc,char * argv[])
         printf("No se ingreso ningun numero para convertir \n");
         exit(EXIT_FAILURE);
     }
-
 
     /*
        Este método separa la cadena del número ingresado en parte entera y parte fraccionaria.
@@ -253,17 +246,17 @@ int main(int argc,char * argv[])
         Invoca a los métodos de CambioBases y retorna el valor de la conversión del número.
     */
     if(num_baseOrigen==10){
-        mult_pf=multiplicacion_partFrac(parteFrac,num_baseOrigen,num_baseDestino);
+        mult_pf=multiplicacion_partFrac(parteFrac,num_baseOrigen,num_baseDestino,mostrarPasos);
         printf("La parte fraccionaria es: %s \n",mult_pf);
-        div_pe=division_partEnt(parteEntera, num_baseOrigen, num_baseDestino);
+        div_pe=division_partEnt(parteEntera, num_baseOrigen, num_baseDestino,mostrarPasos);
         printf("La parte entera es: %s \n",div_pe);
         printf("El resultado es: %s \n",strcat(div_pe,mult_pf));
     }
 
     if(num_baseDestino==10){
-        mult_pe=multiplicacion_partEnt(parteEntera,num_baseOrigen);
+        mult_pe=multiplicacion_partEnt(parteEntera,num_baseOrigen,mostrarPasos);
         printf("La parte entera es: %i \n",mult_pe);
-        div_pf=division_partFrac(parteFrac,num_baseOrigen,num_baseDestino);
+        div_pf=division_partFrac(parteFrac,num_baseOrigen,num_baseDestino,mostrarPasos);
         printf("La parte fraccionaria es: %f \n",div_pf);
         resultado=mult_pe+div_pf;
         printf("El resultado es: %f \n",resultado);
@@ -272,15 +265,15 @@ int main(int argc,char * argv[])
     if(num_baseDestino!=10 && num_baseOrigen!=10){
         //parteEntera
         printf("Entra al if \n");
-        enteroDecimal=multiplicacion_partEnt(parteEntera,num_baseOrigen);
+        enteroDecimal=multiplicacion_partEnt(parteEntera,num_baseOrigen,mostrarPasos);
         printf("El entero decimal de la entera es: %i \n",enteroDecimal);
-        retornar_parteEntera=division_partEntAuxiliar(enteroDecimal,num_baseDestino);
+        retornar_parteEntera=division_partEntAuxiliar(enteroDecimal,num_baseDestino,mostrarPasos);
         printf("El resultado de la parte entera es: %s \n",retornar_parteEntera);
 
         //parteFraccionaria
-        decimal_pf=division_partFrac(parteFrac,num_baseOrigen,10);
+        decimal_pf=division_partFrac(parteFrac,num_baseOrigen,10,mostrarPasos);
         printf("El entero decimal de la fraccionaria es: %f \n",decimal_pf);
-        retornar_parteFraccionaria=multiplicacion_partFracAuxiliar(decimal_pf,num_baseDestino);
+        retornar_parteFraccionaria=multiplicacion_partFracAuxiliar(decimal_pf,num_baseDestino,mostrarPasos);
         printf("El resultado de la parte fraccionaria es: %s \n",retornar_parteFraccionaria);
         printf("El resultado es: %s \n",strcat(retornar_parteEntera,retornar_parteFraccionaria));
 
