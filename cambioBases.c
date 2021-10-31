@@ -12,7 +12,7 @@ void ayuda(){
         printf("NOMBRE\n");
         printf("Convert aplicacion\n");
         printf("\n");
-        //Synopsis revisar
+        //Synopsis
         printf("SYNOPSIS\n");
         printf("Modo de empleo: convert -n<number> [-s <source_base>] [-d <dest_base>] [-v] [-h] \n");
         printf("\n");
@@ -59,30 +59,23 @@ char * division_partEnt(char * cadenaEnt,int origen, int destino, int pasos){
     int cantArreglo=0;
 
     if(pasos==1){
-        printf("Dividimos el numero por la base destino tantas veces como sea posible, y me quedo con el resto");
+        printf("Dividimos el numero por la base destino tantas veces como sea posible, y me quedo con el resto \n");
     }
 
     for(int z=0; z<5 && resultado!=0; z++){
-        if(pasos==1){
-            printf("Tomo el numero %i \n",num);
-            printf("Lo divido por la base destino %i \n",destino);
-        }
+
         resultado=num/destino;
-        if(pasos==1){
-            printf("El resultado de esa división es %i \n",resultado);
-        }
+
         resto=num%destino;
-        if(pasos==1){
-            printf("El resto de esa división es %i \n",resto);
-        }
+
         retornar[z]=resto;
+
         if(pasos==1){
-            printf("El resto de esa división es %i \n",resto);
+            printf("result = %i / %i : %i, con resto: %i \n",num,destino,resultado,resto);
         }
+
         num=resultado;
-        if(pasos==1){
-            printf("Ahora el numero a divir por la base destino es %i \n",resto);
-        }
+
         cantArreglo++;
     }
 
@@ -166,12 +159,21 @@ char * division_partEntAuxiliar(int decimal,int destino,int pasos){
     int resto=0;
     int cantArreglo=0;
 
+    if(pasos==1){
+        printf("Dividimos el numero por la base destino tantas veces como sea posible, y me quedo con el resto \n");
+    }
+
     for(int z=0; z<5 && resultado!=0; z++){
         resultado=decimal/destino;
         //printf("El resultado es: %i \n",resultado);
         resto=decimal%destino;
         //printf("El resto es: %i \n",resto);
         retornar[z]=resto;
+
+        //num seria decimal?
+        if(pasos==1){
+            printf("result = %i / %i : %i, con resto: %i \n",decimal,destino,resultado,resto);
+        }
         decimal=resultado;
         cantArreglo++;
     }
@@ -259,54 +261,71 @@ int multiplicacion_partEnt(char * cadenaEnt,int origen, int pasos){
     char caracter=0;
     int cant=0;
     int j=0;
+    int multExp = 0;
 
     while(cadenaEnt[j]!='\0'){
         cant++;
         j++;
     }
-
+    if(pasos==1){
+        printf("Multiplicamos cada numero por la base origen, elevado a la posicion del numero y sumo todo los resultados \n");
+    }
     int exponente=cant-1;
     int i=0;
+    //agregado para ayuda
+    int sumaAnterior=0;
 
     while(cadenaEnt[i]!='\0'){
         caracter=cadenaEnt[i];
+        sumaAnterior = suma;
 
         if(caracter=='a' || caracter=='A'){
             sumaParcial=pow(origen,exponente);
-            suma=suma+ 10*sumaParcial;
+            multExp = 10*sumaParcial;
+            suma=suma + multExp;
         }
 
         if(caracter=='b' || caracter=='B'){
             sumaParcial=pow(origen,exponente);
-            suma=suma+ 11*sumaParcial;
+            multExp = 11*sumaParcial;
+            suma=suma + multExp;
         }
 
         if(caracter=='c' || caracter=='C'){
             sumaParcial=pow(origen,exponente);
-            suma=suma+ 12*sumaParcial;
+            multExp = 12*sumaParcial;
+            suma=suma + multExp;
         }
 
         if(caracter=='d' || caracter=='D'){
             sumaParcial=pow(origen,exponente);
-            suma=suma+ 13*sumaParcial;
+            multExp = 13*sumaParcial;
+            suma=suma + multExp;;
         }
 
         if(caracter=='e' || caracter=='E'){
             sumaParcial=pow(origen,exponente);
-            suma=suma+ 14*sumaParcial;
+            multExp = 14*sumaParcial;
+            suma=suma + multExp;;
         }
 
         if(caracter=='f' || caracter=='F'){
             sumaParcial=pow(origen,exponente);
-            suma=suma+ 15*sumaParcial;
+            multExp = 15*sumaParcial;
+            suma=suma + multExp;
         }
 
         if(caracter>='0' && caracter<='9'){
             sumaParcial=pow(origen,exponente);
             int num = caracter - '0';
-            suma=suma+(num*sumaParcial);
+            multExp = num*sumaParcial;
+            suma=suma + multExp;
         }
 
+        if(pasos==1){
+            printf("result = %c * %i^(%i) : %i  ---- ",caracter,origen,exponente,multExp);
+            printf("suma total: %i + %i: %i \n",sumaAnterior,multExp,suma);
+        }
         i++;
         exponente--;
     }
@@ -517,48 +536,69 @@ double division_partFrac(char * cadenaFrac, int origen, int destino, int pasos){
 
     double suma=0.0;
     double sumaParcial=0;
+    double sumaAnterior = 0;
     char caracter=0;
     int exponente=1;
     int i=0;
 
+
+    if(pasos==1){
+       printf("Dividimos cada numero decimal por la base origen, elevado a la posicion del numero negativo y sumo todo los resultados \n");
+    }
+
     while(cadenaFrac[i]!='\0'){
         caracter=cadenaFrac[i];
 
+        sumaAnterior = suma;
+
         if(caracter=='a' || caracter=='A'){
             sumaParcial=pow(origen,exponente);
-            suma=suma+(10/sumaParcial);
+            sumaParcial = 10/sumaParcial;
+            suma=suma + sumaParcial;
         }
 
         if(caracter=='b' || caracter=='B'){
             sumaParcial=pow(origen,exponente);
-            suma=suma+ (11/sumaParcial);
+            sumaParcial = 11/sumaParcial;
+            suma=suma + sumaParcial;
         }
 
         if(caracter=='c' || caracter=='C'){
             sumaParcial=pow(origen,exponente);
-            suma=suma+(12/sumaParcial);
+            sumaParcial = 12/sumaParcial;
+            suma=suma + sumaParcial;
         }
 
         if(caracter=='d' || caracter=='D'){
             sumaParcial=pow(origen,exponente);
-            suma=suma+(13/sumaParcial);
+            sumaParcial = 13/sumaParcial;
+            suma=suma + sumaParcial;
         }
 
         if(caracter=='e' || caracter=='E'){
             sumaParcial=pow(origen,exponente);
-            suma=suma+ (14/sumaParcial);
+            sumaParcial = 14/sumaParcial;
+            suma=suma + sumaParcial;
         }
 
         if(caracter=='f' || caracter=='F'){
             sumaParcial=pow(origen,exponente);
-            suma=suma+(15/sumaParcial);
+            sumaParcial = 15/sumaParcial;
+            suma=suma + sumaParcial;
         }
 
         if(caracter>='0' && caracter<='9'){
             sumaParcial=pow(origen,exponente);
             int num = caracter - '0';
-            double division=num/sumaParcial;
-            suma=suma+(division);
+            sumaParcial = num/sumaParcial;
+            //este division esta de mas?
+            double division= sumaParcial;
+            suma= suma + (division);
+        }
+
+        if(pasos==1){
+            printf("result = %c * %i^(%i) : %f  ---- ",caracter,origen,exponente,sumaParcial);
+            printf("suma total: %f + %f: %f \n",sumaAnterior,sumaParcial,suma);
         }
 
         i++;
