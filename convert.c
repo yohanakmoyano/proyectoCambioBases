@@ -12,16 +12,16 @@
 */
 int main(int argc,char * argv[])
 {
-    char cd[10];
-    char *cad = cd;
-    char cbo[3];
-    char *cadena_baseOrigen=cbo;
-    char cbd[3];
-    char *cadena_baseDestino=cbd;
-    char pe[3];
-    char *parteEntera = pe;
-    char pf[5];
-    char *parteFrac = pf;
+    char *cad =  (char *) malloc(10 * sizeof(char));
+    char *cadena_baseOrigen =  (char *) malloc(10 * sizeof(char));
+    char *cadena_baseDestino =  (char *) malloc(10 * sizeof(char));
+    char *parteEntera =  (char *) malloc(10 * sizeof(char));
+    char *parteFrac =  (char *) malloc(5 * sizeof(char));
+    char *mult_pf = (char *) malloc(5 * sizeof(char));
+    char *div_pe = (char *) malloc(10 * sizeof(char));
+    char *retornar_parteEntera =  (char *) malloc(10 * sizeof(char));
+    char *retornar_parteFraccionaria =  (char *) malloc(10 * sizeof(char));
+
     int num_baseOrigen=0;
     int cant_baseOrigen=0;
     int num_baseDestino=0;
@@ -40,14 +40,8 @@ int main(int argc,char * argv[])
     double div_pf=0.0;
     int mult_pe=0;
     double resultado=0.0;
-    char *mult_pf;
-    char *div_pe;
     int enteroDecimal=0;
-    char rpe[10];
-    char *retornar_parteEntera=rpe;
     double decimal_pf=0.0;
-    char rpf[10];
-    char *retornar_parteFraccionaria=rpf;
     int z=0;
     int longitud = 0;
     int x=0;
@@ -278,6 +272,14 @@ int main(int argc,char * argv[])
         printf("El resultado es: %s \n",strcat(retornar_parteEntera,retornar_parteFraccionaria));
 
     }
+
+    free(cad);
+    free(cadena_baseOrigen);
+    free(cadena_baseDestino);
+    free(parteEntera);
+    free(parteFrac);
+    free(retornar_parteEntera);
+    free(retornar_parteFraccionaria);
 
     return EXIT_SUCCESS;
 }
