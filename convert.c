@@ -169,6 +169,42 @@ int main(int argc,char * argv[])
 
     if(cad==NULL) {
         printf("No se ingreso ningun numero para convertir \n");
+        free(x);
+        free(num_baseOrigen);
+        free(num_baseDestino);
+        free(cant_baseOrigen);
+        free(cant_baseDestino);
+        free(bo);
+        free(bd);
+        free(entero_baseOrigen);
+        free(i);
+        free(j);
+        free(k);
+        free(m);
+        free(corte);
+        free(entero_baseDestino);
+        free(contEnt);
+        free(contFrac);
+        free(div_pf);
+        free(mult_pe);
+        free(resultado);
+        free(enteroDecimal);
+        free(decimal_pf);
+        free(z);
+        free(longitud);
+        free(mostrarPasos);
+        free(cad);
+        free(cadena_baseOrigen);
+        free(cadena_baseDestino);
+        free(parteEntera);
+        free(parteFrac);
+        free(retornar_parteEntera);
+        free(retornar_parteFraccionaria);
+        free(g);
+        free(h);
+        free(auxiliar);
+        free(largo);
+
         exit(EXIT_FAILURE);
     }
 
@@ -204,7 +240,44 @@ int main(int argc,char * argv[])
     */
     if(*contEnt>10){
         printf("La cantidad maxima de digitos enteros es 10. Vuelva a introducir su numero. \n");
-        exit(EXIT_FAILURE);
+
+        free(x);
+    free(num_baseOrigen);
+    free(num_baseDestino);
+    free(cant_baseOrigen);
+    free(cant_baseDestino);
+    free(bo);
+    free(bd);
+    free(entero_baseOrigen);
+    free(i);
+    free(j);
+    free(k);
+    free(m);
+    free(corte);
+    free(entero_baseDestino);
+    free(contEnt);
+    free(contFrac);
+    free(div_pf);
+    free(mult_pe);
+    free(resultado);
+    free(enteroDecimal);
+    free(decimal_pf);
+    free(z);
+    free(longitud);
+    free(mostrarPasos);
+    free(cad);
+    free(cadena_baseOrigen);
+    free(cadena_baseDestino);
+    free(parteEntera);
+    free(parteFrac);
+    free(retornar_parteEntera);
+    free(retornar_parteFraccionaria);
+    free(g);
+    free(h);
+    free(auxiliar);
+    free(largo);
+
+    exit(EXIT_FAILURE);
     }
 
     /*
@@ -212,7 +285,44 @@ int main(int argc,char * argv[])
     */
     if(*contFrac>5){
         printf("La cantidad maxima de digitos fraccionarios es 5. Vuelva a introducir su numero. \n");
-        exit(EXIT_FAILURE);
+
+        free(x);
+    free(num_baseOrigen);
+    free(num_baseDestino);
+    free(cant_baseOrigen);
+    free(cant_baseDestino);
+    free(bo);
+    free(bd);
+    free(entero_baseOrigen);
+    free(i);
+    free(j);
+    free(k);
+    free(m);
+    free(corte);
+    free(entero_baseDestino);
+    free(contEnt);
+    free(contFrac);
+    free(div_pf);
+    free(mult_pe);
+    free(resultado);
+    free(enteroDecimal);
+    free(decimal_pf);
+    free(z);
+    free(longitud);
+    free(mostrarPasos);
+    free(cad);
+    free(cadena_baseOrigen);
+    free(cadena_baseDestino);
+    free(parteEntera);
+    free(parteFrac);
+    free(retornar_parteEntera);
+    free(retornar_parteFraccionaria);
+    free(g);
+    free(h);
+    free(auxiliar);
+    free(largo);
+
+    exit(EXIT_FAILURE);
     }
 
 
@@ -250,7 +360,44 @@ int main(int argc,char * argv[])
     */
       if(*num_baseOrigen < 2 || *num_baseOrigen > 16){
         printf("La base origen esta mal ingreada. Vuelva a introducir su numero. \n");
-        exit(ERROR_EXCEDIDO_BASE_ORIGEN);
+
+        free(x);
+    free(num_baseOrigen);
+    free(num_baseDestino);
+    free(cant_baseOrigen);
+    free(cant_baseDestino);
+    free(bo);
+    free(bd);
+    free(entero_baseOrigen);
+    free(i);
+    free(j);
+    free(k);
+    free(m);
+    free(corte);
+    free(entero_baseDestino);
+    free(contEnt);
+    free(contFrac);
+    free(div_pf);
+    free(mult_pe);
+    free(resultado);
+    free(enteroDecimal);
+    free(decimal_pf);
+    free(z);
+    free(longitud);
+    free(mostrarPasos);
+    free(cad);
+    free(cadena_baseOrigen);
+    free(cadena_baseDestino);
+    free(parteEntera);
+    free(parteFrac);
+    free(retornar_parteEntera);
+    free(retornar_parteFraccionaria);
+    free(g);
+    free(h);
+    free(auxiliar);
+    free(largo);
+
+    exit(ERROR_EXCEDIDO_BASE_ORIGEN);
     }
 
 
@@ -286,7 +433,44 @@ int main(int argc,char * argv[])
     */
     if( *num_baseDestino < 2 || *num_baseDestino > 16){
         printf("La base destino esta mal ingresada. Vuelva a introducir su numero. \n");
-        exit(ERROR_EXCEDIDO_BASE_DESTINO);
+
+        free(x);
+    free(num_baseOrigen);
+    free(num_baseDestino);
+    free(cant_baseOrigen);
+    free(cant_baseDestino);
+    free(bo);
+    free(bd);
+    free(entero_baseOrigen);
+    free(i);
+    free(j);
+    free(k);
+    free(m);
+    free(corte);
+    free(entero_baseDestino);
+    free(contEnt);
+    free(contFrac);
+    free(div_pf);
+    free(mult_pe);
+    free(resultado);
+    free(enteroDecimal);
+    free(decimal_pf);
+    free(z);
+    free(longitud);
+    free(mostrarPasos);
+    free(cad);
+    free(cadena_baseOrigen);
+    free(cadena_baseDestino);
+    free(parteEntera);
+    free(parteFrac);
+    free(retornar_parteEntera);
+    free(retornar_parteFraccionaria);
+    free(g);
+    free(h);
+    free(auxiliar);
+    free(largo);
+
+    exit(ERROR_EXCEDIDO_BASE_DESTINO);
     }
 
     printf("La cadena de parte entera es %s \n", parteEntera);
