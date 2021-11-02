@@ -94,6 +94,14 @@ int main(int argc,char * argv[])
     int *mostrarPasos;
     mostrarPasos=(int *)malloc(sizeof(int));
     *mostrarPasos=0;
+    char *auxiliar;
+    auxiliar=(char *)malloc(10 * sizeof(char));
+    int *h;
+    h=(int *)malloc(sizeof(int));
+    int *g;
+    g=(int *)malloc(sizeof(int));
+    int *largo;
+    largo=(int *)malloc(sizeof(int));
 
 
     while(argv[*x]!=NULL){
@@ -156,11 +164,6 @@ int main(int argc,char * argv[])
 
        *z+=1;
     }
-
-    printf("la cadena es : %s \n",cad);
-    printf("la cadena de base origen es : %s \n",cadena_baseOrigen);
-    printf("la cadena de base destino es : %s \n",cadena_baseDestino);
-
 
     //Verifico si hay cadena para el parámetro -n
 
@@ -296,20 +299,20 @@ int main(int argc,char * argv[])
     */
     if(*num_baseOrigen==10){
         //parteEntera
-        *div_pe=*division_partEnt(parteEntera, num_baseDestino,mostrarPasos);
+        div_pe=division_partEnt(parteEntera, num_baseDestino,mostrarPasos);
         printf("La parte entera es: %s \n",div_pe);
         //parteFraccionaria
-        *mult_pf=*multiplicacion_partFrac(parteFrac,num_baseDestino,mostrarPasos);
+        mult_pf=multiplicacion_partFrac(parteFrac,num_baseDestino,mostrarPasos);
         printf("La parte fraccionaria es: %s \n",mult_pf);
         printf("El resultado es: %s.%s \n",div_pe,mult_pf);
     }
 
     if(*num_baseDestino==10){
         //parteEntera
-        *mult_pe=*multiplicacion_partEnt(parteEntera,num_baseOrigen,mostrarPasos);
+        mult_pe=multiplicacion_partEnt(parteEntera,num_baseOrigen,mostrarPasos);
         printf("La parte entera es: %i \n",*mult_pe);
         //parteFraccionaria
-        *div_pf=*division_partFrac(parteFrac,num_baseOrigen,mostrarPasos);
+        div_pf=division_partFrac(parteFrac,num_baseOrigen,mostrarPasos);
         printf("La parte fraccionaria es: %f \n",*div_pf);
         *resultado=*mult_pe+*div_pf;
         printf("El resultado es: %f \n",*resultado);
@@ -317,15 +320,23 @@ int main(int argc,char * argv[])
 
     if(*num_baseDestino!=10 && *num_baseOrigen!=10){
         //parteEntera
-        *enteroDecimal=*multiplicacion_partEnt(parteEntera,num_baseOrigen,mostrarPasos);
+        enteroDecimal=multiplicacion_partEnt(parteEntera,num_baseOrigen,mostrarPasos);
         printf("El entero decimal de la entera es: %i \n",*enteroDecimal);
-        *retornar_parteEntera=*division_partEntAuxiliar(enteroDecimal,num_baseDestino,mostrarPasos);
-        printf("El resultado de la parte entera es: %s \n",retornar_parteEntera);
+        retornar_parteEntera=division_partEntAuxiliar(enteroDecimal,num_baseDestino,mostrarPasos);
+        *largo=strlen(retornar_parteEntera);
+        *g=*largo-1;
+        //invierte la cadena: cadena_parteEntera
+        for (*h=0; *h<*largo; *h+=1){
+            auxiliar[*h]= retornar_parteEntera[*g];
+            *g-=1;
+        }
+
+        printf("El resultado de la parte entera es: %s \n",auxiliar);
 
         //parteFraccionaria
-        *decimal_pf=*division_partFrac(parteFrac,num_baseOrigen,mostrarPasos);
+        decimal_pf=division_partFrac(parteFrac,num_baseOrigen,mostrarPasos);
         printf("El entero decimal de la fraccionaria es: %f \n",*decimal_pf);
-        *retornar_parteFraccionaria=*multiplicacion_partFracAuxiliar(decimal_pf,num_baseDestino,mostrarPasos);
+        retornar_parteFraccionaria=multiplicacion_partFracAuxiliar(decimal_pf,num_baseDestino,mostrarPasos);
         printf("El resultado de la parte fraccionaria es: %s \n",retornar_parteFraccionaria);
         printf("El resultado es: %s.%s \n",retornar_parteEntera,retornar_parteFraccionaria);
 
@@ -362,6 +373,10 @@ int main(int argc,char * argv[])
     free(parteFrac);
     free(retornar_parteEntera);
     free(retornar_parteFraccionaria);
+    free(g);
+    free(h);
+    free(auxiliar);
+    free(largo);
 
     return EXIT_SUCCESS;
 }

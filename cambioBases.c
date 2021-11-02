@@ -30,7 +30,6 @@ void ayuda(){
     Retorna el resultado de la conversión utilizando el método de la división
     para la parte entera.
 */
-
 char * division_partEnt(char * cadenaEnt, int * destino, int * pasos){
 
     if(*pasos==1){
@@ -40,12 +39,7 @@ char * division_partEnt(char * cadenaEnt, int * destino, int * pasos){
     }
 
     char *cadena_retornar =  (char *) malloc(10 * sizeof(char));
-
-    int *retornar[10];
-    for(int r=0;r<10;r++){
-        retornar[r]=(int *)malloc(sizeof(int));
-    }
-
+    int *retornar=(int *) malloc(10 * sizeof(int));;
     int *num;
     num=(int*) malloc(sizeof(int));
     *num=0;
@@ -61,6 +55,22 @@ char * division_partEnt(char * cadenaEnt, int * destino, int * pasos){
     int *q;
     q=(int*) malloc(sizeof(int));
     *q=0;
+    int *resultado;
+    resultado=(int*) malloc(sizeof(int));
+    *resultado=1;
+    int *resto;
+    resto=(int*) malloc(sizeof(int));
+    *resto=0;
+    int *cantArreglo;
+    cantArreglo=(int*) malloc(sizeof(int));
+    *cantArreglo=0;
+    int *z;
+    z=(int*) malloc(sizeof(int));
+    int *s;
+    s=(int*) malloc(sizeof(int));
+    *s=0;
+    int *j;
+    j=(int*) malloc(sizeof(int));
 
     while(cadenaEnt[*r]!='\0'){
         *cant+=1;
@@ -74,118 +84,109 @@ char * division_partEnt(char * cadenaEnt, int * destino, int * pasos){
         *q+=1;
     }
 
-    int *resultado;
-    resultado=(int*) malloc(sizeof(int));
-    *resultado=1;
-
-    int *resto;
-    resto=(int*) malloc(sizeof(int));
-    *resto=0;
-    int *cantArreglo;
-    cantArreglo=(int*) malloc(sizeof(int));
-    *cantArreglo=0;
-
     if(*pasos==1){
         printf("Dividimos el numero por la base destino tantas veces como sea posible, y me quedo con el resto \n");
     }
 
-    int *z;
-    z=(int*) malloc(sizeof(int));
-
     for(*z=0; *z<10 && *resultado!=0; *z+=1){
 
         *resultado=*num/(*destino);
-
         *resto=*num%(*destino);
-
-        *retornar[*z]=*resto;
+        retornar[*z]=*resto;
 
         if(*pasos==1){
             printf("result = %i / %i : %i, con resto: %i \n",*num,*destino,*resultado,*resto);
         }
 
         *num=*resultado;
-
         *cantArreglo+=1;
     }
 
-    int *s;
-    s=(int*) malloc(sizeof(int));
-    *s=0;
-
-    int *j;
-    j=(int*) malloc(sizeof(int));
-
     for(*j=*cantArreglo-1;*j>=0;*j-=1){
-        if(*retornar[*j]==10) {
+        if(retornar[*j]==10) {
             cadena_retornar[*s]=65;
         }
 
-        if(*retornar[*j]==11) {
+        if(retornar[*j]==11) {
             cadena_retornar[*s]=66;
 
         }
 
-        if(*retornar[*j]==12) {
+        if(retornar[*j]==12) {
             cadena_retornar[*s]=67;
         }
 
-        if(*retornar[*j]==13) {
+        if(retornar[*j]==13) {
             cadena_retornar[*s]=68;
         }
 
-        if(*retornar[*j]==14) {
+        if(retornar[*j]==14) {
             cadena_retornar[*s]=69;
         }
 
-        if(*retornar[*j]==15) {
+        if(retornar[*j]==15) {
             cadena_retornar[*s]=70;
         }
 
-        if(*retornar[*j]==1) {
+        if(retornar[*j]==1) {
             cadena_retornar[*s]=49;
         }
 
-        if(*retornar[*j]==2) {
+        if(retornar[*j]==2) {
             cadena_retornar[*s]=50;
         }
 
-        if(*retornar[*j]==3) {
+        if(retornar[*j]==3) {
             cadena_retornar[*s]=51;
         }
 
-        if(*retornar[*j]==4) {
+        if(retornar[*j]==4) {
             cadena_retornar[*s]=52;
         }
 
-        if(*retornar[*j]==5) {
+        if(retornar[*j]==5) {
             cadena_retornar[*s]=53;
         }
 
-        if(*retornar[*j]==6) {
+        if(retornar[*j]==6) {
             cadena_retornar[*s]=54;
         }
 
-        if(*retornar[*j]==7) {
+        if(retornar[*j]==7) {
             cadena_retornar[*s]=55;
         }
 
-        if(*retornar[*j]==8) {
+        if(retornar[*j]==8) {
             cadena_retornar[*s]=56;
         }
 
-        if(*retornar[*j]==9) {
+        if(retornar[*j]==9) {
             cadena_retornar[*s]=57;
         }
 
         *s+=1;
       }
     printf("La cadena a retornar es: %s \n",cadena_retornar);
+
+    free(retornar);
+    free(num);
+    free(cant);
+    free(entero);
+    free(r);
+    free(q);
+    free(resultado);
+    free(resto);
+    free(cantArreglo);
+    free(z);
+    free(s);
+    free(j);
     return cadena_retornar;
 }
 
-//ParteEnteraAuxiliar
-
+/*
+    Retorna el resultado de la conversión utilizando el método de la división
+    para la parte entera.
+*/
 char * division_partEntAuxiliar(int *decimal,int *destino,int *pasos){
 
     if(*pasos==1){
@@ -194,12 +195,7 @@ char * division_partEntAuxiliar(int *decimal,int *destino,int *pasos){
         printf("Parte Entera resuelta con el metodo de la division \n");
     }
     char *cadena_retornar =  (char *) malloc(10 * sizeof(char));
-
-    int *retornar[10];
-    for(int r=0;r<10;r++){
-        retornar[r]=(int *)malloc(sizeof(int));
-    }
-
+    int * retornar= (int *) malloc(10 * sizeof(int));
     int *resultado;
     resultado=(int *)malloc(sizeof(int));
     *resultado=1;
@@ -211,6 +207,8 @@ char * division_partEntAuxiliar(int *decimal,int *destino,int *pasos){
     *cantArreglo=0;
     int *z;
     z=(int *)malloc(sizeof(int));
+    int *j;
+    j=(int *)malloc(sizeof(int));
 
     if(*pasos==1){
         printf("Dividimos el numero por la base destino tantas veces como sea posible, y me quedo con el resto \n");
@@ -219,7 +217,7 @@ char * division_partEntAuxiliar(int *decimal,int *destino,int *pasos){
     for(*z=0; *z<10 && resultado!=0; *z+=1){
         *resultado=*decimal/(*destino);
         *resto=*decimal%(*destino);
-        *retornar[*z]=*resto;
+        retornar[*z]=*resto;
 
         if(*pasos==1){
             printf("result = %i / %i : %i, con resto: %i \n",*decimal,*destino,*resultado,*resto);
@@ -228,78 +226,78 @@ char * division_partEntAuxiliar(int *decimal,int *destino,int *pasos){
         *cantArreglo+=1;
     }
 
-    int *s;
-    s=(int *)malloc(sizeof(int));
-    *s=0;
-
-    int *j;
-    j=(int *)malloc(sizeof(int));
 
     for(*j=*cantArreglo-1;*j>=0;*j-=1){
-        if(*retornar[*j]==10) {
-            cadena_retornar[*s]=65;
+
+        if(retornar[*j]==10) {
+            cadena_retornar[*j]='A';
         }
 
-        if(*retornar[*j]==11) {
-            cadena_retornar[*s]=66;
+        if(retornar[*j]==11) {
+            cadena_retornar[*j]=66;
 
         }
 
-        if(*retornar[*j]==12) {
-            cadena_retornar[*s]=67;
+        if(retornar[*j]==12) {
+            cadena_retornar[*j]=67;
         }
 
-        if(*retornar[*j]==13) {
-            cadena_retornar[*s]=68;
+        if(retornar[*j]==13) {
+            cadena_retornar[*j]=68;
         }
 
-        if(*retornar[*j]==14) {
-            cadena_retornar[*s]=69;
+        if(retornar[*j]==14) {
+            cadena_retornar[*j]=69;
         }
 
-        if(*retornar[*j]==15) {
-            cadena_retornar[*s]=70;
+        if(retornar[*j]==15) {
+            cadena_retornar[*j]=70;
         }
 
-        if(*retornar[*j]==1) {
-            cadena_retornar[*s]=49;
+        if(retornar[*j]==1) {
+            cadena_retornar[*j]=49;
         }
 
-        if(*retornar[*j]==2) {
-            cadena_retornar[*s]=50;
+        if(retornar[*j]==2) {
+            cadena_retornar[*j]='2';
         }
 
-        if(*retornar[*j]==3) {
-            cadena_retornar[*s]=51;
+        if(retornar[*j]==3) {
+            cadena_retornar[*j]=51;
         }
 
-        if(*retornar[*j]==4) {
-            cadena_retornar[*s]=52;
+        if(retornar[*j]==4) {
+            cadena_retornar[*j]=52;
         }
 
-        if(*retornar[*j]==5) {
-            cadena_retornar[*s]=53;
+        if(retornar[*j]==5) {
+            cadena_retornar[*j]=53;
         }
 
-        if(*retornar[*j]==6) {
-            cadena_retornar[*s]=54;
+        if(retornar[*j]==6) {
+            cadena_retornar[*j]=54;
         }
 
-        if(*retornar[*j]==7) {
-            cadena_retornar[*s]=55;
+        if(retornar[*j]==7) {
+            cadena_retornar[*j]=55;
         }
 
-        if(*retornar[*j]==8) {
-            cadena_retornar[*s]=56;
+        if(retornar[*j]==8) {
+            cadena_retornar[*j]=56;
         }
 
-        if(*retornar[*j]==9) {
-            cadena_retornar[*s]=57;
+        if(retornar[*j]==9) {
+            cadena_retornar[*j]=57;
         }
-
-        *s+=1;
       }
 
+    printf("La cadena a retornar es : %s \n",cadena_retornar);
+    free(retornar);
+    free(resultado);
+    free(resto);
+    free(cantArreglo);
+    free(z);
+    free(j);
     return cadena_retornar;
 
 }
@@ -316,10 +314,10 @@ int * multiplicacion_partEnt(char * cadenaEnt,int *origen, int *pasos){
         printf("----------------------------------------- \n");
         printf("Parte Entera resuelta con el metodo de la multiplicacion \n");
     }
+
     int *suma;
     suma=(int *)malloc(sizeof(int));
     *suma=0;
-
     int *sumaParcial;
     sumaParcial=(int *)malloc(sizeof(int));
     *sumaParcial=0;
@@ -334,6 +332,16 @@ int * multiplicacion_partEnt(char * cadenaEnt,int *origen, int *pasos){
     int *multExp;
     multExp=(int *)malloc(sizeof(int));
     *multExp=0;
+    int *exponente;
+    exponente=(int *)malloc(sizeof(int));
+    int *i;
+    i=(int *)malloc(sizeof(int));
+    *i=0;
+    int *sumaAnterior;
+    sumaAnterior=(int *)malloc(sizeof(int));
+    *sumaAnterior=0;
+    int *num;
+    num=(int *)malloc(sizeof(int));
 
     while(cadenaEnt[*j]!='\0'){
         *cant+=1;
@@ -343,16 +351,7 @@ int * multiplicacion_partEnt(char * cadenaEnt,int *origen, int *pasos){
         printf("Multiplicamos cada numero por la base origen, elevado a la posicion del numero y sumo todo los resultados \n");
     }
 
-    int *exponente;
-    exponente=(int *)malloc(sizeof(int));
     *exponente=*cant-1;
-    int *i;
-    i=(int *)malloc(sizeof(int));
-    *i=0;
-    //agregado para ayuda
-    int *sumaAnterior;
-    sumaAnterior=(int *)malloc(sizeof(int));
-    *sumaAnterior=0;
 
     while(cadenaEnt[*i]!='\0'){
         *caracter=cadenaEnt[*i];
@@ -397,8 +396,6 @@ int * multiplicacion_partEnt(char * cadenaEnt,int *origen, int *pasos){
         if(*caracter>='0' && *caracter<='9'){
 
             *sumaParcial=pow(*origen,*exponente);
-            int *num;
-            num=(int *)malloc(sizeof(int));
             *num = *caracter - '0';
             *multExp = *num*(*sumaParcial);
             *suma=*suma + *multExp;
@@ -412,6 +409,15 @@ int * multiplicacion_partEnt(char * cadenaEnt,int *origen, int *pasos){
         *i+=1;
         *exponente-=1;
     }
+
+    free(sumaParcial);
+    free(caracter);
+    free(cant);
+    free(j);
+    free(multExp);
+    free(exponente);
+    free(i);
+    free(sumaAnterior);
 
     return suma;
 }
@@ -437,34 +443,6 @@ char * multiplicacion_partFrac(char * cadenaFrac, int *destino, int *pasos){
     int *j;
     j=(int*) malloc(sizeof(int));
     *j=0;
-
-    while(cadenaFrac[*j]!='\0'){
-        *cant+=1;
-        *cantDig+=1;
-        *j+=1;
-    }
-
-    int *q;
-    q=(int*) malloc(sizeof(int));
-    *q=0;
-    int *entero;
-    entero=(int*) malloc(sizeof(int));
-    *entero=0;
-    int *num;
-    num=(int*) malloc(sizeof(int));
-    *num=0;
-
-    while(cadenaFrac[*q]!='\0'){
-        *entero=cadenaFrac[*q]-'0';
-        *num=*num+*entero*pow(10,*cant-1);
-        *cant-=1;
-        *q+=1;
-    }
-
-    double *num_convertir;
-    num_convertir=(double*) malloc(sizeof(double));
-    *num_convertir=*num*pow(10,-(*cantDig));
-
     int *pe;
     pe=(int*) malloc(sizeof(int));
     *pe=0;
@@ -474,19 +452,42 @@ char * multiplicacion_partFrac(char * cadenaFrac, int *destino, int *pasos){
     double *resultado;
     resultado=(double*) malloc(sizeof(double));
     *resultado=0.0;
+    int *k;
+    k=(int *)malloc(sizeof(int));
+    int * retornar= (int *) malloc(5 * sizeof(int));
+    int *i;
+    i=(int *)malloc(sizeof(int));
+    int *q;
+    q=(int*) malloc(sizeof(int));
+    *q=0;
+    int *entero;
+    entero=(int*) malloc(sizeof(int));
+    *entero=0;
+    int *num;
+    num=(int*) malloc(sizeof(int));
+    *num=0;
+    double *num_convertir;
+    num_convertir=(double*) malloc(sizeof(double));
 
-    int *retornar[5];
-    for(int r=0;r<5;r++){
-        retornar[r]=(int *)malloc(sizeof(int));
+    while(cadenaFrac[*j]!='\0'){
+        *cant+=1;
+        *cantDig+=1;
+        *j+=1;
     }
+
+    while(cadenaFrac[*q]!='\0'){
+        *entero=cadenaFrac[*q]-'0';
+        *num=*num+*entero*pow(10,*cant-1);
+        *cant-=1;
+        *q+=1;
+    }
+
+    *num_convertir=*num*pow(10,-(*cantDig));
 
     if(*pasos==1){
         printf("Tomo el numero y lo multiplico por la base destino. Me quedo con la parte entera del resultado. \n");
         printf("Al resultado le resto la parte entera y vuelvo a multiplicar por la base\n");
     }
-
-    int *i;
-    i=(int *)malloc(sizeof(int));
 
     for(*i=0;*i<5;*i+=1){
         *resultado=*num_convertir*(*destino);
@@ -497,7 +498,7 @@ char * multiplicacion_partFrac(char * cadenaFrac, int *destino, int *pasos){
 
         *pe=(int)*resultado;
         *pf=*resultado-*pe;
-        *retornar[*i]=*pe;
+        retornar[*i]=*pe;
         *num_convertir=*pf;
 
         if(*pasos==1){
@@ -508,79 +509,92 @@ char * multiplicacion_partFrac(char * cadenaFrac, int *destino, int *pasos){
 
     }
 
-    int *k;
-    k=(int *)malloc(sizeof(int));
-
     for(*k=0;*k<5;*k+=1){
-        if(*retornar[*k]==10) {
+        if(retornar[*k]==10) {
             cadena_retornar[*k]=65;
         }
 
-        if(*retornar[*k]==11) {
+        if(retornar[*k]==11) {
             cadena_retornar[*k]=66;
         }
 
-        if(*retornar[*k]==12) {
+        if(retornar[*k]==12) {
             cadena_retornar[*k]=67;
         }
 
-        if(*retornar[*k]==13) {
+        if(retornar[*k]==13) {
             cadena_retornar[*k]=68;
         }
 
-        if(*retornar[*k]==14) {
+        if(retornar[*k]==14) {
             cadena_retornar[*k]=69;
         }
 
-        if(*retornar[*k]==15) {
+        if(retornar[*k]==15) {
             cadena_retornar[*k]=70;
         }
 
-        if(*retornar[*k]==1) {
+        if(retornar[*k]==1) {
             cadena_retornar[*k]=49;
         }
 
-        if(*retornar[*k]==2) {
+        if(retornar[*k]==2) {
             cadena_retornar[*k]=50;
         }
 
-        if(*retornar[*k]==3) {
+        if(retornar[*k]==3) {
             cadena_retornar[*k]=51;
         }
 
-        if(*retornar[*k]==4) {
+        if(retornar[*k]==4) {
             cadena_retornar[*k]=52;
         }
 
-        if(*retornar[*k]==5) {
+        if(retornar[*k]==5) {
             cadena_retornar[*k]=53;
         }
 
-        if(*retornar[*k]==6) {
+        if(retornar[*k]==6) {
             cadena_retornar[*k]=54;
         }
 
-        if(*retornar[*k]==7) {
+        if(retornar[*k]==7) {
             cadena_retornar[*k]=55;
         }
 
-        if(*retornar[*k]==8) {
+        if(retornar[*k]==8) {
             cadena_retornar[*k]=56;
         }
 
-        if(*retornar[*k]==9) {
+        if(retornar[*k]==9) {
             cadena_retornar[*k]=57;
         }
     }
+
+    free(cant);
+    free(cantDig);
+    free(j);
+    free(q);
+    free(entero);
+    free(num);
+    free(num_convertir);
+    free(pe);
+    free(pf);
+    free(resultado);
+    free(retornar);
+    free(i);
+    free(k);
 
     printf("la cadena a retornar es: %s \n",cadena_retornar);
     return cadena_retornar;
 }
 
-//Metodo Auxiliar
+/*
+    Retorna el resultado de la conversión utilizando el método de la multiplicación
+    para la parte fraccionaria.
+*/
 char * multiplicacion_partFracAuxiliar(double *decimal,int *destino, int *pasos){
 
-     printf("entra al metodo de mult parte frac aux \n");
     if(*pasos==1){
         printf("\n");
         printf("----------------------------------------- \n");
@@ -596,25 +610,24 @@ char * multiplicacion_partFracAuxiliar(double *decimal,int *destino, int *pasos)
     double *resultado;
     resultado=(double*) malloc(sizeof(double));
     *resultado=0.0;
-
-    int *retornar[5];
-    for(int r=0;r<5;r++){
-        retornar[r]=(int *)malloc(sizeof(int));
-    }
+    int *k;
+    k=(int *)malloc(sizeof(int));
+    int *retornar=(int *) malloc(5 * sizeof(int));
+    int *i;
+    i=(int *)malloc(sizeof(int));
 
     if(*pasos==1){
         printf("Tomo el numero y lo multiplico por la base destino. Me quedo con la parte entera del resultado. \n");
         printf("Al resultado le resto la parte entera y vuelvo a multiplicar por la base\n");
     }
 
-    int *i;
-    i=(int *)malloc(sizeof(int));
+
     for(*i=0;*i<5;*i+=1){
         *resultado=*decimal*(*destino);
 
         *pe=(int)*resultado;
         *pf=*resultado-*pe;
-        *retornar[*i]=*pe;
+        retornar[*i]=*pe;
         *decimal=*pf;
 
         if(*pasos==1){
@@ -626,70 +639,76 @@ char * multiplicacion_partFracAuxiliar(double *decimal,int *destino, int *pasos)
         }
     }
 
-    int *k;
-    k=(int *)malloc(sizeof(int));
     for(*k=0;*k<5;*k+=1){
-        if(*retornar[*k]==10) {
+        if(retornar[*k]==10) {
             cadena_retornar[*k]=65;
         }
 
-        if(*retornar[*k]==11) {
+        if(retornar[*k]==11) {
             cadena_retornar[*k]=66;
         }
 
-        if(*retornar[*k]==12) {
+        if(retornar[*k]==12) {
             cadena_retornar[*k]=67;
         }
 
-        if(*retornar[*k]==13) {
+        if(retornar[*k]==13) {
             cadena_retornar[*k]=68;
         }
 
-        if(*retornar[*k]==14) {
+        if(retornar[*k]==14) {
             cadena_retornar[*k]=69;
         }
 
-        if(*retornar[*k]==15) {
+        if(retornar[*k]==15) {
             cadena_retornar[*k]=70;
         }
 
-        if(*retornar[*k]==1) {
+        if(retornar[*k]==1) {
             cadena_retornar[*k]=49;
         }
 
-        if(*retornar[*k]==2) {
+        if(retornar[*k]==2) {
             cadena_retornar[*k]=50;
         }
 
-        if(*retornar[*k]==3) {
+        if(retornar[*k]==3) {
             cadena_retornar[*k]=51;
         }
 
-        if(*retornar[*k]==4) {
+        if(retornar[*k]==4) {
             cadena_retornar[*k]=52;
         }
 
-        if(*retornar[*k]==5) {
+        if(retornar[*k]==5) {
             cadena_retornar[*k]=53;
         }
 
-        if(*retornar[*k]==6) {
+        if(retornar[*k]==6) {
             cadena_retornar[*k]=54;
         }
 
-        if(*retornar[*k]==7) {
+        if(retornar[*k]==7) {
             cadena_retornar[*k]=55;
         }
 
-        if(*retornar[*k]==8) {
+        if(retornar[*k]==8) {
             cadena_retornar[*k]=56;
         }
 
-        if(*retornar[*k]==9) {
+        if(retornar[*k]==9) {
             cadena_retornar[*k]=57;
         }
     }
 
+    free(pe);
+    free(pf);
+    free(resultado);
+    free(retornar);
+    free(i);
+    free(k);
+
+    printf("La cadena a retornar es: %s \n",cadena_retornar);
     return cadena_retornar;
 
 }
@@ -719,6 +738,8 @@ double *division_partFrac(char * cadenaFrac, int *origen, int *pasos){
     i=(int *)malloc(sizeof(int));
     double *division;
     division=(double *)malloc(sizeof(double));
+    int *num;
+    num=(int *)malloc(sizeof(int));
 
     *suma=0;
     *sumaParcial=0;
@@ -726,9 +747,6 @@ double *division_partFrac(char * cadenaFrac, int *origen, int *pasos){
     *exponente=1;
     *i=0;
     *division=0.0;
-
-    int *num;
-    num=(int *)malloc(sizeof(int));
 
     if(*pasos==1){
        printf("Dividimos cada numero decimal por la base origen, elevado a la posicion del numero negativo y sumo todo los resultados \n");
@@ -790,6 +808,14 @@ double *division_partFrac(char * cadenaFrac, int *origen, int *pasos){
         *i+=1;
         *exponente+=1;
     }
+
+    free(sumaParcial);
+    free(sumaAnterior);
+    free(caracter);
+    free(exponente);
+    free(i);
+    free(division);
+    free(num);
 
     return suma;
 }
