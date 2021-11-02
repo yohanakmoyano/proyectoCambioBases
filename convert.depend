@@ -1,11 +1,11 @@
 # depslib dependency file v1.0
-1635830714 source:c:\users\yohaa\documents\organizacion de computadoras\practicos\convert\cambiobases.c
+1635867943 source:c:\users\yohaa\documents\organizacion de computadoras\practicos\convert\cambiobases.c
 	<math.h>
 	"convert.h"
 	<stdlib.h>
 	<stdio.h>
 
-1635822598 source:c:\users\yohaa\documents\organizacion de computadoras\practicos\convert\convert.c
+1635869148 source:c:\users\yohaa\documents\organizacion de computadoras\practicos\convert\convert.c
 	<stdio.h>
 	<stdlib.h>
 	<math.h>
@@ -15,7 +15,7 @@
 
 1635626724 c:\users\yohaa\documents\organizacion de computadoras\practicos\convert\constantes.h
 
-1635802744 c:\users\yohaa\documents\organizacion de computadoras\practicos\convert\convert.h
+1635867312 c:\users\yohaa\documents\organizacion de computadoras\practicos\convert\convert.h
 
 1635639582 source:c:\users\mica cano\desktop\uni-proyectos\2021\orga\proyectocambiobases\convert.c
 	<stdio.h>

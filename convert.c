@@ -91,9 +91,6 @@ int main(int argc,char * argv[])
     int *longitud;
     longitud=(int *)malloc(sizeof(int));
     *longitud=0;
-    int *baseDiez;
-    baseDiez=(int *)malloc(sizeof(int));
-    *baseDiez=10;
     int *mostrarPasos;
     mostrarPasos=(int *)malloc(sizeof(int));
     *mostrarPasos=0;
@@ -298,17 +295,21 @@ int main(int argc,char * argv[])
         Invoca a los métodos de CambioBases y retorna el valor de la conversión del número.
     */
     if(*num_baseOrigen==10){
-        mult_pf=multiplicacion_partFrac(parteFrac,num_baseOrigen,num_baseDestino,mostrarPasos);
-        printf("La parte fraccionaria es: %s \n",mult_pf);
-        div_pe=division_partEnt(parteEntera, num_baseOrigen, num_baseDestino,mostrarPasos);
+        //parteEntera
+        *div_pe=*division_partEnt(parteEntera, num_baseDestino,mostrarPasos);
         printf("La parte entera es: %s \n",div_pe);
-        printf("El resultado es: %s \n",strcat(div_pe,mult_pf));
+        //parteFraccionaria
+        *mult_pf=*multiplicacion_partFrac(parteFrac,num_baseDestino,mostrarPasos);
+        printf("La parte fraccionaria es: %s \n",mult_pf);
+        printf("El resultado es: %s.%s \n",div_pe,mult_pf);
     }
 
     if(*num_baseDestino==10){
-        mult_pe=multiplicacion_partEnt(parteEntera,num_baseOrigen,mostrarPasos);
+        //parteEntera
+        *mult_pe=*multiplicacion_partEnt(parteEntera,num_baseOrigen,mostrarPasos);
         printf("La parte entera es: %i \n",*mult_pe);
-        div_pf=division_partFrac(parteFrac,num_baseOrigen,num_baseDestino,mostrarPasos);
+        //parteFraccionaria
+        *div_pf=*division_partFrac(parteFrac,num_baseOrigen,mostrarPasos);
         printf("La parte fraccionaria es: %f \n",*div_pf);
         *resultado=*mult_pe+*div_pf;
         printf("El resultado es: %f \n",*resultado);
@@ -316,18 +317,17 @@ int main(int argc,char * argv[])
 
     if(*num_baseDestino!=10 && *num_baseOrigen!=10){
         //parteEntera
-        printf("Entra al if \n");
-        enteroDecimal=multiplicacion_partEnt(parteEntera,num_baseOrigen,mostrarPasos);
+        *enteroDecimal=*multiplicacion_partEnt(parteEntera,num_baseOrigen,mostrarPasos);
         printf("El entero decimal de la entera es: %i \n",*enteroDecimal);
-        retornar_parteEntera=division_partEntAuxiliar(enteroDecimal,num_baseDestino,mostrarPasos);
+        *retornar_parteEntera=*division_partEntAuxiliar(enteroDecimal,num_baseDestino,mostrarPasos);
         printf("El resultado de la parte entera es: %s \n",retornar_parteEntera);
 
         //parteFraccionaria
-        decimal_pf=division_partFrac(parteFrac,num_baseOrigen,baseDiez,mostrarPasos);
+        *decimal_pf=*division_partFrac(parteFrac,num_baseOrigen,mostrarPasos);
         printf("El entero decimal de la fraccionaria es: %f \n",*decimal_pf);
-        retornar_parteFraccionaria=multiplicacion_partFracAuxiliar(decimal_pf,num_baseDestino,mostrarPasos);
+        *retornar_parteFraccionaria=*multiplicacion_partFracAuxiliar(decimal_pf,num_baseDestino,mostrarPasos);
         printf("El resultado de la parte fraccionaria es: %s \n",retornar_parteFraccionaria);
-        printf("El resultado es: %s \n",strcat(retornar_parteEntera,retornar_parteFraccionaria));
+        printf("El resultado es: %s.%s \n",retornar_parteEntera,retornar_parteFraccionaria);
 
     }
 
@@ -354,7 +354,6 @@ int main(int argc,char * argv[])
     free(decimal_pf);
     free(z);
     free(longitud);
-    free(baseDiez);
     free(mostrarPasos);
     free(cad);
     free(cadena_baseOrigen);

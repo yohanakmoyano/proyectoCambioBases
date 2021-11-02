@@ -31,7 +31,7 @@ void ayuda(){
     para la parte entera.
 */
 
-char * division_partEnt(char * cadenaEnt,int * origen, int * destino, int * pasos){
+char * division_partEnt(char * cadenaEnt, int * destino, int * pasos){
 
     if(*pasos==1){
         printf("\n");
@@ -180,7 +180,7 @@ char * division_partEnt(char * cadenaEnt,int * origen, int * destino, int * paso
 
         *s+=1;
       }
-
+    printf("La cadena a retornar es: %s \n",cadena_retornar);
     return cadena_retornar;
 }
 
@@ -218,9 +218,7 @@ char * division_partEntAuxiliar(int *decimal,int *destino,int *pasos){
 
     for(*z=0; *z<10 && resultado!=0; *z+=1){
         *resultado=*decimal/(*destino);
-        printf("El resultado es: %i \n",*resultado);
         *resto=*decimal%(*destino);
-        printf("El resto es: %i \n",*resto);
         *retornar[*z]=*resto;
 
         if(*pasos==1){
@@ -239,9 +237,7 @@ char * division_partEntAuxiliar(int *decimal,int *destino,int *pasos){
 
     for(*j=*cantArreglo-1;*j>=0;*j-=1){
         if(*retornar[*j]==10) {
-            //printf("aca deberia haber un 10: %i \n",*retornar[*j]);
             cadena_retornar[*s]=65;
-            //printf("aca deberia haber una A: %s \n",cadena_retornar[*s]);
         }
 
         if(*retornar[*j]==11) {
@@ -271,8 +267,6 @@ char * division_partEntAuxiliar(int *decimal,int *destino,int *pasos){
 
         if(*retornar[*j]==2) {
             cadena_retornar[*s]=50;
-            printf("aca deberia haber un 2: %c \n",cadena_retornar[*s]);
-            printf("la cadena deberia tener un 2 %s \n",cadena_retornar);
         }
 
         if(*retornar[*j]==3) {
@@ -306,7 +300,6 @@ char * division_partEntAuxiliar(int *decimal,int *destino,int *pasos){
         *s+=1;
       }
 
-    printf("la cadena a retornar adentro del metodo es: %s \n",cadena_retornar);
     return cadena_retornar;
 
 }
@@ -318,7 +311,6 @@ char * division_partEntAuxiliar(int *decimal,int *destino,int *pasos){
 */
 int * multiplicacion_partEnt(char * cadenaEnt,int *origen, int *pasos){
 
-    printf("Entra al metodo \n");
     if(*pasos==1){
         printf("\n");
         printf("----------------------------------------- \n");
@@ -403,14 +395,14 @@ int * multiplicacion_partEnt(char * cadenaEnt,int *origen, int *pasos){
         }
 
         if(*caracter>='0' && *caracter<='9'){
-            printf("Esta haciedno algoooo \n");
+
             *sumaParcial=pow(*origen,*exponente);
             int *num;
             num=(int *)malloc(sizeof(int));
             *num = *caracter - '0';
             *multExp = *num*(*sumaParcial);
             *suma=*suma + *multExp;
-            printf("la suma es : %i \n",*suma);
+
         }
 
         if(*pasos==1){
@@ -421,7 +413,6 @@ int * multiplicacion_partEnt(char * cadenaEnt,int *origen, int *pasos){
         *exponente-=1;
     }
 
-    printf("la suma es : %i \n",*suma);
     return suma;
 }
 
@@ -429,7 +420,7 @@ int * multiplicacion_partEnt(char * cadenaEnt,int *origen, int *pasos){
     Retorna el resultado de la conversión utilizando el método de la multiplicación
     para la parte fraccionaria.
 */
-char * multiplicacion_partFrac(char * cadenaFrac,int *origen, int *destino, int *pasos){
+char * multiplicacion_partFrac(char * cadenaFrac, int *destino, int *pasos){
 
     if(*pasos==1){
         printf("\n");
@@ -707,9 +698,8 @@ char * multiplicacion_partFracAuxiliar(double *decimal,int *destino, int *pasos)
     Retorna el resultado de la conversión utilizando el método de la división
     para la parte fraccionaria.
 */
-double *division_partFrac(char * cadenaFrac, int *origen, int *destino, int *pasos){
+double *division_partFrac(char * cadenaFrac, int *origen, int *pasos){
 
-    printf("Entra a division parte frac");
     if(*pasos==1){
         printf("\n");
         printf("----------------------------------------- \n");
@@ -786,10 +776,8 @@ double *division_partFrac(char * cadenaFrac, int *origen, int *destino, int *pas
 
         if(*caracter>='0' && *caracter<='9'){
             *sumaParcial=pow(*origen,*exponente);
-            //saqeu de aca todo
             *num = *caracter - '0';
             *sumaParcial = *num/(*sumaParcial);
-            //este division esta de mas?
             *division= *sumaParcial;
             *suma= *suma + (*division);
         }
@@ -800,11 +788,8 @@ double *division_partFrac(char * cadenaFrac, int *origen, int *destino, int *pas
         }
 
         *i+=1;
-        printf("la i tiene: %i \n",*i);
         *exponente+=1;
-        printf("el exponente tiene: %i \n",*exponente);
     }
 
-    printf("la suma del metodo es: %f",*suma);
     return suma;
 }
