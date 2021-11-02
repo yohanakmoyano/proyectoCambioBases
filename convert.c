@@ -12,15 +12,66 @@
 */
 int main(int argc,char * argv[])
 {
-    char *cad =  (char *) malloc(10 * sizeof(char));
-    char *cadena_baseOrigen =  (char *) malloc(10 * sizeof(char));
-    char *cadena_baseDestino =  (char *) malloc(10 * sizeof(char));
+    char *cad =  (char *) malloc(16 * sizeof(char));
+    char *cadena_baseOrigen =  (char *) malloc(2 * sizeof(char));
+    char *cadena_baseDestino =  (char *) malloc(2 * sizeof(char));
     char *parteEntera =  (char *) malloc(10 * sizeof(char));
     char *parteFrac =  (char *) malloc(5 * sizeof(char));
-    char *mult_pf = (char *) malloc(5 * sizeof(char));
-    char *div_pe = (char *) malloc(10 * sizeof(char));
+    char *mult_pf;
+    char *div_pe;
     char *retornar_parteEntera =  (char *) malloc(10 * sizeof(char));
-    char *retornar_parteFraccionaria =  (char *) malloc(10 * sizeof(char));
+    char *retornar_parteFraccionaria =  (char *) malloc(5 * sizeof(char));
+    char *auxiliar;
+    auxiliar=(char *)malloc(10 * sizeof(char));
+    int *long_cadParteEntera;
+    long_cadParteEntera=(int *)malloc(sizeof(int));
+    *long_cadParteEntera=strlen(parteEntera);
+    int *a;
+    a=(int *)malloc(sizeof(int));
+
+    int *long_cadParteFraccionaria;
+    long_cadParteFraccionaria=(int *)malloc(sizeof(int));
+    *long_cadParteFraccionaria=strlen(parteFrac);
+    int *b;
+    b=(int *)malloc(sizeof(int));
+
+    int *long_cad;
+    long_cad=(int *)malloc(sizeof(int));
+    *long_cad=strlen(cad);
+    int *c;
+    c=(int *)malloc(sizeof(int));
+
+    int *long_bases;
+    long_bases=(int *)malloc(sizeof(int));
+    *long_bases=strlen(cadena_baseOrigen);
+    int *d;
+    d=(int *)malloc(sizeof(int));
+
+    //Inicializo Parte Entera  y retornar_parteEntera con nulos
+    for(*a=0;*a<*long_cadParteEntera;*a+=1){
+        parteEntera[*a]='\0';
+        retornar_parteEntera[*a]='\0';
+        auxiliar[*a]='\0';
+    }
+
+    //Inicializo ParteFrac y retornar_parteFraccionaria con nulos
+    for(*b=0;*b<*long_cadParteFraccionaria;*b+=1){
+        parteFrac[*b]='\0';
+        retornar_parteFraccionaria[*b]='\0';
+
+    }
+
+    //Inicializo cad con nulos
+    for(*c=0;*c<*long_cad;*c+=1){
+        cad[*c]='\0';
+    }
+
+    //Inicializo cadena_baseOrigen y cadena_baseDestino con nulos
+    for(*d=0;*d<*long_bases;*d+=1){
+        cadena_baseOrigen[*d]='\0';
+        cadena_baseDestino[*d]='\0';
+    }
+
 
     int *x;
     x=(int *)malloc(sizeof(int));
@@ -94,8 +145,6 @@ int main(int argc,char * argv[])
     int *mostrarPasos;
     mostrarPasos=(int *)malloc(sizeof(int));
     *mostrarPasos=0;
-    char *auxiliar;
-    auxiliar=(char *)malloc(10 * sizeof(char));
     int *h;
     h=(int *)malloc(sizeof(int));
     int *g;
@@ -362,42 +411,42 @@ int main(int argc,char * argv[])
         printf("La base origen esta mal ingreada. Vuelva a introducir su numero. \n");
 
         free(x);
-    free(num_baseOrigen);
-    free(num_baseDestino);
-    free(cant_baseOrigen);
-    free(cant_baseDestino);
-    free(bo);
-    free(bd);
-    free(entero_baseOrigen);
-    free(i);
-    free(j);
-    free(k);
-    free(m);
-    free(corte);
-    free(entero_baseDestino);
-    free(contEnt);
-    free(contFrac);
-    free(div_pf);
-    free(mult_pe);
-    free(resultado);
-    free(enteroDecimal);
-    free(decimal_pf);
-    free(z);
-    free(longitud);
-    free(mostrarPasos);
-    free(cad);
-    free(cadena_baseOrigen);
-    free(cadena_baseDestino);
-    free(parteEntera);
-    free(parteFrac);
-    free(retornar_parteEntera);
-    free(retornar_parteFraccionaria);
-    free(g);
-    free(h);
-    free(auxiliar);
-    free(largo);
+        free(num_baseOrigen);
+        free(num_baseDestino);
+        free(cant_baseOrigen);
+        free(cant_baseDestino);
+        free(bo);
+        free(bd);
+        free(entero_baseOrigen);
+        free(i);
+        free(j);
+        free(k);
+        free(m);
+        free(corte);
+        free(entero_baseDestino);
+        free(contEnt);
+        free(contFrac);
+        free(div_pf);
+        free(mult_pe);
+        free(resultado);
+        free(enteroDecimal);
+        free(decimal_pf);
+        free(z);
+        free(longitud);
+        free(mostrarPasos);
+        free(cad);
+        free(cadena_baseOrigen);
+        free(cadena_baseDestino);
+        free(parteEntera);
+        free(parteFrac);
+        free(retornar_parteEntera);
+        free(retornar_parteFraccionaria);
+        free(g);
+        free(h);
+        free(auxiliar);
+        free(largo);
 
-    exit(ERROR_EXCEDIDO_BASE_ORIGEN);
+        exit(ERROR_EXCEDIDO_BASE_ORIGEN);
     }
 
 
@@ -435,42 +484,42 @@ int main(int argc,char * argv[])
         printf("La base destino esta mal ingresada. Vuelva a introducir su numero. \n");
 
         free(x);
-    free(num_baseOrigen);
-    free(num_baseDestino);
-    free(cant_baseOrigen);
-    free(cant_baseDestino);
-    free(bo);
-    free(bd);
-    free(entero_baseOrigen);
-    free(i);
-    free(j);
-    free(k);
-    free(m);
-    free(corte);
-    free(entero_baseDestino);
-    free(contEnt);
-    free(contFrac);
-    free(div_pf);
-    free(mult_pe);
-    free(resultado);
-    free(enteroDecimal);
-    free(decimal_pf);
-    free(z);
-    free(longitud);
-    free(mostrarPasos);
-    free(cad);
-    free(cadena_baseOrigen);
-    free(cadena_baseDestino);
-    free(parteEntera);
-    free(parteFrac);
-    free(retornar_parteEntera);
-    free(retornar_parteFraccionaria);
-    free(g);
-    free(h);
-    free(auxiliar);
-    free(largo);
+        free(num_baseOrigen);
+        free(num_baseDestino);
+        free(cant_baseOrigen);
+        free(cant_baseDestino);
+        free(bo);
+        free(bd);
+        free(entero_baseOrigen);
+        free(i);
+        free(j);
+        free(k);
+        free(m);
+        free(corte);
+        free(entero_baseDestino);
+        free(contEnt);
+        free(contFrac);
+        free(div_pf);
+        free(mult_pe);
+        free(resultado);
+        free(enteroDecimal);
+        free(decimal_pf);
+        free(z);
+        free(longitud);
+        free(mostrarPasos);
+        free(cad);
+        free(cadena_baseOrigen);
+        free(cadena_baseDestino);
+        free(parteEntera);
+        free(parteFrac);
+        free(retornar_parteEntera);
+        free(retornar_parteFraccionaria);
+        free(g);
+        free(h);
+        free(auxiliar);
+        free(largo);
 
-    exit(ERROR_EXCEDIDO_BASE_DESTINO);
+        exit(ERROR_EXCEDIDO_BASE_DESTINO);
     }
 
     printf("La cadena de parte entera es %s \n", parteEntera);

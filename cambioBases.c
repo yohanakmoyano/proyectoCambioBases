@@ -2,6 +2,7 @@
 #include "convert.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 //--------Métodos de conversión----------
 
@@ -39,6 +40,18 @@ char * division_partEnt(char * cadenaEnt, int * destino, int * pasos){
     }
 
     char *cadena_retornar =  (char *) malloc(10 * sizeof(char));
+
+    int *long_cad;
+    long_cad=(int *)malloc(sizeof(int));
+    *long_cad=strlen(cadena_retornar);
+    int *a;
+    a=(int *)malloc(sizeof(int));
+
+    //Inicializo cadena_retornar con nulos
+    for(*a=0;*a<*long_cad;*a+=1){
+        cadena_retornar[*a]='\0';
+    }
+
     int *retornar=(int *) malloc(10 * sizeof(int));;
     int *num;
     num=(int*) malloc(sizeof(int));
@@ -195,6 +208,18 @@ char * division_partEntAuxiliar(int *decimal,int *destino,int *pasos){
         printf("Parte Entera resuelta con el metodo de la division \n");
     }
     char *cadena_retornar =  (char *) malloc(10 * sizeof(char));
+
+    int *long_cad;
+    long_cad=(int *)malloc(sizeof(int));
+    *long_cad=strlen(cadena_retornar);
+    int *a;
+    a=(int *)malloc(sizeof(int));
+
+    //Inicializo cadena_retornar con nulos
+    for(*a=0;*a<*long_cad;*a+=1){
+        cadena_retornar[*a]='\0';
+    }
+
     int * retornar= (int *) malloc(10 * sizeof(int));
     int *resultado;
     resultado=(int *)malloc(sizeof(int));
@@ -434,6 +459,18 @@ char * multiplicacion_partFrac(char * cadenaFrac, int *destino, int *pasos){
         printf("Parte Fraccionaria resuelta con el metodo de la multiplicacion \n");
     }
     char *cadena_retornar = (char *) malloc(5 * sizeof(char));
+
+    int *long_cad;
+    long_cad=(int *)malloc(sizeof(int));
+    *long_cad=strlen(cadena_retornar);
+    int *a;
+    a=(int *)malloc(sizeof(int));
+
+    //Inicializo cadena_retornar con nulos
+    for(*a=0;*a<*long_cad;*a+=1){
+        cadena_retornar[*a]='\0';
+    }
+
     int *cant;
     cant=(int*) malloc(sizeof(int));
     *cant=0;
@@ -601,6 +638,18 @@ char * multiplicacion_partFracAuxiliar(double *decimal,int *destino, int *pasos)
         printf("Parte Fraccionaria resuelta con el metodo de la multiplicacion \n");
     }
     char *cadena_retornar =  (char *) malloc(5 * sizeof(char));
+
+    int *long_cad;
+    long_cad=(int *)malloc(sizeof(int));
+    *long_cad=strlen(cadena_retornar);
+    int *a;
+    a=(int *)malloc(sizeof(int));
+
+    //Inicializo cadena_retornar con nulos
+    for(*a=0;*a<*long_cad;*a+=1){
+        cadena_retornar[*a]='\0';
+    }
+
     int *pe;
     pe=(int*) malloc(sizeof(int));
     *pe=0;
