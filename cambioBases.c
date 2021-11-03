@@ -39,7 +39,7 @@ char * division_partEnt(char * cadenaEnt, int * destino, int * pasos){
         printf("Parte Entera resuelta con el metodo de la division \n");
     }
 
-    char *cadena_retornar =  (char *) malloc(10 * sizeof(char));
+    char *cadena_retornar = (char *) malloc(10 * sizeof(char));
 
     int *long_cad;
     long_cad=(int *)malloc(sizeof(int));
@@ -79,9 +79,6 @@ char * division_partEnt(char * cadenaEnt, int * destino, int * pasos){
     *cantArreglo=0;
     int *z;
     z=(int*) malloc(sizeof(int));
-    int *s;
-    s=(int*) malloc(sizeof(int));
-    *s=0;
     int *j;
     j=(int*) malloc(sizeof(int));
 
@@ -117,67 +114,69 @@ char * division_partEnt(char * cadenaEnt, int * destino, int * pasos){
 
     for(*j=*cantArreglo-1;*j>=0;*j-=1){
         if(retornar[*j]==10) {
-            cadena_retornar[*s]=65;
+            cadena_retornar[*j]=65;
         }
 
         if(retornar[*j]==11) {
-            cadena_retornar[*s]=66;
+            cadena_retornar[*j]=66;
 
         }
 
         if(retornar[*j]==12) {
-            cadena_retornar[*s]=67;
+            cadena_retornar[*j]=67;
         }
 
         if(retornar[*j]==13) {
-            cadena_retornar[*s]=68;
+            cadena_retornar[*j]=68;
         }
 
         if(retornar[*j]==14) {
-            cadena_retornar[*s]=69;
+            cadena_retornar[*j]=69;
         }
 
         if(retornar[*j]==15) {
-            cadena_retornar[*s]=70;
+            cadena_retornar[*j]=70;
+        }
+
+        if(retornar[*j]==0) {
+            cadena_retornar[*j]=48;
         }
 
         if(retornar[*j]==1) {
-            cadena_retornar[*s]=49;
+            cadena_retornar[*j]=49;
         }
 
         if(retornar[*j]==2) {
-            cadena_retornar[*s]=50;
+            cadena_retornar[*j]=50;
         }
 
         if(retornar[*j]==3) {
-            cadena_retornar[*s]=51;
+            cadena_retornar[*j]=51;
         }
 
         if(retornar[*j]==4) {
-            cadena_retornar[*s]=52;
+            cadena_retornar[*j]=52;
         }
 
         if(retornar[*j]==5) {
-            cadena_retornar[*s]=53;
+            cadena_retornar[*j]=53;
         }
 
         if(retornar[*j]==6) {
-            cadena_retornar[*s]=54;
+            cadena_retornar[*j]=54;
         }
 
         if(retornar[*j]==7) {
-            cadena_retornar[*s]=55;
+            cadena_retornar[*j]=55;
         }
 
         if(retornar[*j]==8) {
-            cadena_retornar[*s]=56;
+            cadena_retornar[*j]=56;
         }
 
         if(retornar[*j]==9) {
-            cadena_retornar[*s]=57;
+            cadena_retornar[*j]=57;
         }
-
-        *s+=1;
       }
 
     free(retornar);
@@ -190,8 +189,9 @@ char * division_partEnt(char * cadenaEnt, int * destino, int * pasos){
     free(resto);
     free(cantArreglo);
     free(z);
-    free(s);
     free(j);
+
+    printf("La cadena es: %s \n",cadena_retornar);
     return cadena_retornar;
 }
 
@@ -278,6 +278,10 @@ char * division_partEntAuxiliar(int *decimal,int *destino,int *pasos){
             cadena_retornar[*j]=70;
         }
 
+        if(retornar[*j]==0) {
+            cadena_retornar[*j]=48;
+        }
+
         if(retornar[*j]==1) {
             cadena_retornar[*j]=49;
         }
@@ -324,7 +328,6 @@ char * division_partEntAuxiliar(int *decimal,int *destino,int *pasos){
     return cadena_retornar;
 
 }
-
 
 /*
     Retorna el resultado de la conversión utilizando el método de la multiplicación
@@ -569,6 +572,10 @@ char * multiplicacion_partFrac(char * cadenaFrac, int *destino, int *pasos){
             cadena_retornar[*k]=70;
         }
 
+        if(retornar[*j]==0) {
+            cadena_retornar[*j]=48;
+        }
+
         if(retornar[*k]==1) {
             cadena_retornar[*k]=49;
         }
@@ -708,6 +715,10 @@ char * multiplicacion_partFracAuxiliar(double *decimal,int *destino, int *pasos)
 
         if(retornar[*k]==15) {
             cadena_retornar[*k]=70;
+        }
+
+        if(retornar[*k]==0) {
+            cadena_retornar[*k]=48;
         }
 
         if(retornar[*k]==1) {

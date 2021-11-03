@@ -43,6 +43,8 @@ int main(int argc,char * argv[])
     *long_bases=strlen(cadena_baseOrigen);
     int *d;
     d=(int *)malloc(sizeof(int));
+    char *auxiliar_div =(char *) malloc (10 *sizeof(char));
+    int *largo_div=(int *) malloc (sizeof(int));
 
     //Inicializo Parte Entera  y retornar_parteEntera con nulos
     for(*a=0;*a<*long_cadParteEntera;*a+=1){
@@ -63,11 +65,13 @@ int main(int argc,char * argv[])
         cad[*c]='\0';
     }
 
+
     //Inicializo cadena_baseOrigen y cadena_baseDestino con nulos
     for(*d=0;*d<*long_bases;*d+=1){
         cadena_baseOrigen[*d]='\0';
         cadena_baseDestino[*d]='\0';
     }
+
 
     int *x;
     x=(int *)malloc(sizeof(int));
@@ -147,6 +151,10 @@ int main(int argc,char * argv[])
     g=(int *)malloc(sizeof(int));
     int *largo;
     largo=(int *)malloc(sizeof(int));
+    int *e;
+    e=(int *) malloc (sizeof(int));
+    int *f;
+    f=(int *) malloc (sizeof(int));
 
     while(argv[*x]!=NULL){
        *longitud+=1;
@@ -247,6 +255,10 @@ int main(int argc,char * argv[])
         free(h);
         free(auxiliar);
         free(largo);
+        free(auxiliar_div);
+        free(largo_div);
+        free(e);
+        free(f);
 
         exit(EXIT_FAILURE);
     }
@@ -318,6 +330,10 @@ int main(int argc,char * argv[])
         free(h);
         free(auxiliar);
         free(largo);
+        free(auxiliar_div);
+        free(largo_div);
+        free(e);
+        free(f);
 
         exit(EXIT_FAILURE);
     }
@@ -363,13 +379,17 @@ int main(int argc,char * argv[])
         free(h);
         free(auxiliar);
         free(largo);
+        free(auxiliar_div);
+        free(largo_div);
+        free(e);
+        free(f);
 
         exit(EXIT_FAILURE);
     }
 
     //---------------BaseOrigen-----------------------------
 
-    if(cadena_baseOrigen==NULL){
+    if(*cadena_baseOrigen=='\0'){
         *num_baseOrigen=10;
     }else{
         /*
@@ -399,7 +419,7 @@ int main(int argc,char * argv[])
         Controla que la base origen ingresada sea correcta.
     */
       if(*num_baseOrigen < 2 || *num_baseOrigen > 16){
-        printf("La base origen esta mal ingreada. Vuelva a introducir su numero. \n");
+        printf("La base origen esta mal ingresada. Vuelva a introducir su numero. \n");
 
         free(x);
         free(num_baseOrigen);
@@ -436,6 +456,10 @@ int main(int argc,char * argv[])
         free(h);
         free(auxiliar);
         free(largo);
+        free(auxiliar_div);
+        free(largo_div);
+        free(e);
+        free(f);
 
         exit(ERROR_EXCEDIDO_BASE_ORIGEN);
     }
@@ -443,7 +467,7 @@ int main(int argc,char * argv[])
 
     //---------------BaseDestino-----------------------------
 
-    if(cadena_baseDestino==NULL){
+    if(*cadena_baseDestino=='\0'){
         *num_baseDestino=10;
     }else{
 
@@ -509,6 +533,10 @@ int main(int argc,char * argv[])
         free(h);
         free(auxiliar);
         free(largo);
+        free(auxiliar_div);
+        free(largo_div);
+        free(e);
+        free(f);
 
         exit(ERROR_EXCEDIDO_BASE_DESTINO);
     }
@@ -524,11 +552,18 @@ int main(int argc,char * argv[])
     if(*num_baseOrigen==10){
         //parteEntera
         div_pe=division_partEnt(parteEntera, num_baseDestino,mostrarPasos);
-        printf("La parte entera es: %s \n",div_pe);
+        *largo_div=strlen(div_pe);
+        *e=*largo_div - 1;
+        //invierte la cadena: cadena_parteEntera
+        for (*f=0; *f<*largo_div; *f+=1){
+            auxiliar_div[*f]= div_pe[*e];
+            *e-=1;
+        }
+        printf("La parte entera es: %s \n",auxiliar_div);
         //parteFraccionaria
         mult_pf=multiplicacion_partFrac(parteFrac,num_baseDestino,mostrarPasos);
         printf("La parte fraccionaria es: %s \n",mult_pf);
-        printf("El resultado es: %s.%s \n",div_pe,mult_pf);
+        printf("El resultado es: %s.%s \n",auxiliar_div,mult_pf);
     }
 
     if(*num_baseDestino==10){
@@ -599,6 +634,10 @@ int main(int argc,char * argv[])
     free(h);
     free(auxiliar);
     free(largo);
+    free(auxiliar_div);
+    free(largo_div);
+    free(e);
+    free(f);
 
     return EXIT_SUCCESS;
 }
