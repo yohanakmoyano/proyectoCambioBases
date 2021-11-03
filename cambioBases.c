@@ -19,11 +19,11 @@ void ayuda(){
         printf("\n");
         //Descripcion
         printf("DESCRIPCION\n");
-        printf("-n  numero que desea convertir\n");
-        printf("-s  base origen que esta expresado el numero\n");
-        printf("-d  base destino que desea convertir\n");
-        printf("-h  muestra esta ayuda y sale del programa\n");
-        printf("-v  muestra los computos intermedios que se realizaron en el proceso de conversion\n");
+        printf("-n  numero que desea convertir. Este parámetro es obligatorio.\n");
+        printf("-s  base origen que esta expresado el numero. Si no se especifica se asume base decimal.\n");
+        printf("-d  base destino que desea convertir.Si no se especifica se asume base decimal.\n");
+        printf("-h  muestra esta ayuda y sale del programa. Este parámetro es opcional.\n");
+        printf("-v  muestra los computos intermedios que se realizaron en el proceso de conversion. Este parámetro es opcional.\n");
         printf("\n");
 }
 
@@ -179,7 +179,6 @@ char * division_partEnt(char * cadenaEnt, int * destino, int * pasos){
 
         *s+=1;
       }
-    printf("La cadena a retornar es: %s \n",cadena_retornar);
 
     free(retornar);
     free(num);
@@ -316,7 +315,6 @@ char * division_partEntAuxiliar(int *decimal,int *destino,int *pasos){
         }
       }
 
-    printf("La cadena a retornar es : %s \n",cadena_retornar);
     free(retornar);
     free(resultado);
     free(resto);
@@ -622,7 +620,6 @@ char * multiplicacion_partFrac(char * cadenaFrac, int *destino, int *pasos){
     free(i);
     free(k);
 
-    printf("la cadena a retornar es: %s \n",cadena_retornar);
     return cadena_retornar;
 }
 
@@ -757,7 +754,6 @@ char * multiplicacion_partFracAuxiliar(double *decimal,int *destino, int *pasos)
     free(i);
     free(k);
 
-    printf("La cadena a retornar es: %s \n",cadena_retornar);
     return cadena_retornar;
 
 }

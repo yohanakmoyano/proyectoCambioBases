@@ -28,19 +28,16 @@ int main(int argc,char * argv[])
     *long_cadParteEntera=strlen(parteEntera);
     int *a;
     a=(int *)malloc(sizeof(int));
-
     int *long_cadParteFraccionaria;
     long_cadParteFraccionaria=(int *)malloc(sizeof(int));
     *long_cadParteFraccionaria=strlen(parteFrac);
     int *b;
     b=(int *)malloc(sizeof(int));
-
     int *long_cad;
     long_cad=(int *)malloc(sizeof(int));
     *long_cad=strlen(cad);
     int *c;
     c=(int *)malloc(sizeof(int));
-
     int *long_bases;
     long_bases=(int *)malloc(sizeof(int));
     *long_bases=strlen(cadena_baseOrigen);
@@ -71,7 +68,6 @@ int main(int argc,char * argv[])
         cadena_baseOrigen[*d]='\0';
         cadena_baseDestino[*d]='\0';
     }
-
 
     int *x;
     x=(int *)malloc(sizeof(int));
@@ -152,12 +148,10 @@ int main(int argc,char * argv[])
     int *largo;
     largo=(int *)malloc(sizeof(int));
 
-
     while(argv[*x]!=NULL){
        *longitud+=1;
        *x+=1;
     }
-
 
     while(argv[*z]!=NULL){
 
@@ -270,7 +264,6 @@ int main(int argc,char * argv[])
             *i+=1;
             *contEnt+=1;
         }
-
     }
 
     //Retorna la parte fraccionaria del número.
@@ -291,42 +284,42 @@ int main(int argc,char * argv[])
         printf("La cantidad maxima de digitos enteros es 10. Vuelva a introducir su numero. \n");
 
         free(x);
-    free(num_baseOrigen);
-    free(num_baseDestino);
-    free(cant_baseOrigen);
-    free(cant_baseDestino);
-    free(bo);
-    free(bd);
-    free(entero_baseOrigen);
-    free(i);
-    free(j);
-    free(k);
-    free(m);
-    free(corte);
-    free(entero_baseDestino);
-    free(contEnt);
-    free(contFrac);
-    free(div_pf);
-    free(mult_pe);
-    free(resultado);
-    free(enteroDecimal);
-    free(decimal_pf);
-    free(z);
-    free(longitud);
-    free(mostrarPasos);
-    free(cad);
-    free(cadena_baseOrigen);
-    free(cadena_baseDestino);
-    free(parteEntera);
-    free(parteFrac);
-    free(retornar_parteEntera);
-    free(retornar_parteFraccionaria);
-    free(g);
-    free(h);
-    free(auxiliar);
-    free(largo);
+        free(num_baseOrigen);
+        free(num_baseDestino);
+        free(cant_baseOrigen);
+        free(cant_baseDestino);
+        free(bo);
+        free(bd);
+        free(entero_baseOrigen);
+        free(i);
+        free(j);
+        free(k);
+        free(m);
+        free(corte);
+        free(entero_baseDestino);
+        free(contEnt);
+        free(contFrac);
+        free(div_pf);
+        free(mult_pe);
+        free(resultado);
+        free(enteroDecimal);
+        free(decimal_pf);
+        free(z);
+        free(longitud);
+        free(mostrarPasos);
+        free(cad);
+        free(cadena_baseOrigen);
+        free(cadena_baseDestino);
+        free(parteEntera);
+        free(parteFrac);
+        free(retornar_parteEntera);
+        free(retornar_parteFraccionaria);
+        free(g);
+        free(h);
+        free(auxiliar);
+        free(largo);
 
-    exit(EXIT_FAILURE);
+        exit(EXIT_FAILURE);
     }
 
     /*
@@ -336,45 +329,43 @@ int main(int argc,char * argv[])
         printf("La cantidad maxima de digitos fraccionarios es 5. Vuelva a introducir su numero. \n");
 
         free(x);
-    free(num_baseOrigen);
-    free(num_baseDestino);
-    free(cant_baseOrigen);
-    free(cant_baseDestino);
-    free(bo);
-    free(bd);
-    free(entero_baseOrigen);
-    free(i);
-    free(j);
-    free(k);
-    free(m);
-    free(corte);
-    free(entero_baseDestino);
-    free(contEnt);
-    free(contFrac);
-    free(div_pf);
-    free(mult_pe);
-    free(resultado);
-    free(enteroDecimal);
-    free(decimal_pf);
-    free(z);
-    free(longitud);
-    free(mostrarPasos);
-    free(cad);
-    free(cadena_baseOrigen);
-    free(cadena_baseDestino);
-    free(parteEntera);
-    free(parteFrac);
-    free(retornar_parteEntera);
-    free(retornar_parteFraccionaria);
-    free(g);
-    free(h);
-    free(auxiliar);
-    free(largo);
+        free(num_baseOrigen);
+        free(num_baseDestino);
+        free(cant_baseOrigen);
+        free(cant_baseDestino);
+        free(bo);
+        free(bd);
+        free(entero_baseOrigen);
+        free(i);
+        free(j);
+        free(k);
+        free(m);
+        free(corte);
+        free(entero_baseDestino);
+        free(contEnt);
+        free(contFrac);
+        free(div_pf);
+        free(mult_pe);
+        free(resultado);
+        free(enteroDecimal);
+        free(decimal_pf);
+        free(z);
+        free(longitud);
+        free(mostrarPasos);
+        free(cad);
+        free(cadena_baseOrigen);
+        free(cadena_baseDestino);
+        free(parteEntera);
+        free(parteFrac);
+        free(retornar_parteEntera);
+        free(retornar_parteFraccionaria);
+        free(g);
+        free(h);
+        free(auxiliar);
+        free(largo);
 
-    exit(EXIT_FAILURE);
+        exit(EXIT_FAILURE);
     }
-
-
 
     //---------------BaseOrigen-----------------------------
 
@@ -554,7 +545,6 @@ int main(int argc,char * argv[])
     if(*num_baseDestino!=10 && *num_baseOrigen!=10){
         //parteEntera
         enteroDecimal=multiplicacion_partEnt(parteEntera,num_baseOrigen,mostrarPasos);
-        printf("El entero decimal de la entera es: %i \n",*enteroDecimal);
         retornar_parteEntera=division_partEntAuxiliar(enteroDecimal,num_baseDestino,mostrarPasos);
         *largo=strlen(retornar_parteEntera);
         *g=*largo-1;
@@ -568,10 +558,9 @@ int main(int argc,char * argv[])
 
         //parteFraccionaria
         decimal_pf=division_partFrac(parteFrac,num_baseOrigen,mostrarPasos);
-        printf("El entero decimal de la fraccionaria es: %f \n",*decimal_pf);
         retornar_parteFraccionaria=multiplicacion_partFracAuxiliar(decimal_pf,num_baseDestino,mostrarPasos);
         printf("El resultado de la parte fraccionaria es: %s \n",retornar_parteFraccionaria);
-        printf("El resultado es: %s.%s \n",retornar_parteEntera,retornar_parteFraccionaria);
+        printf("El resultado es: %s.%s \n",auxiliar,retornar_parteFraccionaria);
 
     }
 
